@@ -90,9 +90,9 @@ def moveUser():
                         maps[i][j] = 0
                         move_count += 1
                         break
-    print('------')
-    for item in maps:
-        print(item)
+    # print('------')
+    # for item in maps:
+    #     print(item)
 out_flag = False
 
 for i in range(K):
