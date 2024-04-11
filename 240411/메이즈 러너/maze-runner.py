@@ -30,18 +30,19 @@ def getNewPosition():
     return exit_x, exit_y, user_stack
 
 def findSquare2():
-    for k in range(2, N):
+    for k in range(2, N+1):
         for i in range(N):
             for j in range(N):
                 user_flag = False
                 exit_flag = False
+                if i + k > N or j + k > N:
+                    continue
                 for n in range(k):
                     for m in range(k):
-                        if i+n < N and j+m < N:
-                            if maps[i+n][j+m] == 'X':
-                                exit_flag = True
-                            elif maps[i+n][j+m] == 'U':
-                                user_flag = True
+                        if maps[i+n][j+m] == 'X':
+                            exit_flag = True
+                        if maps[i+n][j+m] == 'U':
+                            user_flag = True
 
                 if user_flag and exit_flag:
                     return i, j, k
@@ -89,7 +90,9 @@ def moveUser():
                         maps[i][j] = 0
                         move_count += 1
                         break
-
+    print('------')
+    for item in maps:
+        print(item)
 out_flag = False
 
 for i in range(K):
